@@ -1,7 +1,5 @@
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
 /build
 /captures
@@ -12,3 +10,6 @@ jokedisplay.iml
 libs/
 src/main/java/
 src/main/res/drawable/
+backend/build
+backend/backend.iml
+backend/src/main/webapp
