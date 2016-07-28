@@ -1,15 +1,15 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EndpointsAsyncTask.AsyncResponse{
+
+    private String result = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view){
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
+        new EndpointsAsyncTask(this).execute(this);
+    }
+
+    /**
+     * Only used to test the AsyncTask response.
+     * @return The AsyncTask result.
+     */
+    public String getResult()
+    {
+        return result;
     }
 
 
+    @Override
+    public void deliverTestResult( String result ) {
+        this.result = result;
+    }
 }
