@@ -43,7 +43,7 @@ public class AsyncTaskTest {
                 if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP )
                     wait(1000);
                 else
-                    wait(2000);
+                    wait(4000);
             }
         }
         catch ( InterruptedException e )
