@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 
+import android.os.Build;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.widget.Button;
@@ -38,7 +39,11 @@ public class AsyncTaskTest {
         {
             // Wait for Async task to be ready
             synchronized (this) {
-                wait(1000);
+                //Older versions take more time to load async task
+                if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP )
+                    wait(1000);
+                else
+                    wait(2000);
             }
         }
         catch ( InterruptedException e )

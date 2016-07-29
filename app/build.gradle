@@ -32,6 +32,10 @@ android {
             applicationId 'com.udacity.gradle.builditbigger.paid'
         }
     }
+
+    buildscript {
+
+    }
 }
 
 dependencies {
@@ -40,6 +44,7 @@ dependencies {
     compile project(':jokedisplay')
     compile 'com.android.support:appcompat-v7:24.1.1'
     freeCompile 'com.google.android.gms:play-services:9.2.1'
+    freeCompile 'com.google.firebase:firebase-ads:9.2.1'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     compile project(path: ':backend', configuration: 'android-endpoints')
@@ -49,3 +54,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
 }
+
+
+apply plugin: 'com.google.gms.google-services'
