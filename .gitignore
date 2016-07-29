@@ -8,8 +8,6 @@ FinalProject.iml
 app/app.iml
 jokedisplay.iml
 libs/
-src/main/java/
-src/main/res/drawable/
 backend/build
 backend/backend.iml
 backend/src/main/webapp

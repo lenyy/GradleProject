@@ -1,0 +1,4 @@
+<resources>
+    <string name="instructions">Press the button for a delicious joke!</string>
+    <string name="button_text">Tell Joke</string>
+</resources>
