@@ -17,3 +17,23 @@ allprojects {
         jcenter()
     }
 }
+
+task testBackendWithConnectedTests {
+    dependsOn = ['startAppEngine', 'runConnectedTests', 'stopAppEngine']
+}
+
+
+task startAppEngine {
+    dependsOn 'backend:appengineRun'
+}
+
+
+task runConnectedTests {
+    mustRunAfter 'startAppEngine'
+    dependsOn 'app:connectedFreeDebugAndroidTest'
+}
+
+task stopAppEngine {
+    mustRunAfter 'runConnectedTests'
+    dependsOn 'backend:appengineStop'
+}

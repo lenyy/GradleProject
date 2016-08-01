@@ -38,10 +38,12 @@ public class AsyncTaskTest {
         try
         {
             // Wait for Async task to be ready
+            // We have to wait so much time because this test is run together with
+            // app engine run and stop sto we need some extra seconds.
             synchronized (this) {
                 //Older versions take more time to load async task
                 if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP )
-                    wait(1000);
+                    wait(2000);
                 else
                     wait(4000);
             }
