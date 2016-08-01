@@ -5,16 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 
 public class MainActivity extends AppCompatActivity implements EndpointsAsyncTask.AsyncResponse{
 
     private String result = "";
 
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        progressBar = (ProgressBar) findViewById(R.id.progress);
     }
 
 
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
 
     public void tellJoke(View view){
         new EndpointsAsyncTask(this).execute(this);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
 
     @Override
     public void deliverTestResult( String result ) {
+        progressBar.setVisibility(View.GONE);
         this.result = result;
     }
 }
